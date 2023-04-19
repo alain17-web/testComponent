@@ -11,18 +11,20 @@ const Login = () => {
 
     const handleClick = async (e) => {
         e.preventDefault()
-        setLoading(true)
+        console.log(error)
+       setLoading(true)
         try{
             const {data} = await axios.get("https://jsonplaceholder.typicode.com/users/1")
             setUser(data)
         } catch {
             setError(true)
-        }
+        } 
+        setLoading(false)
     }
 
     return (
         <div className="container">
-            <span>{user.name}</span>
+            <span className="user">{user.name}</span>
             <form>
                 <input 
                     type="text" 
